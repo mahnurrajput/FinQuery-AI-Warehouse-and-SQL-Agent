@@ -1,0 +1,47 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.code-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+ENV/
+
+# Notebook / interactive Python
+.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# SQL / database artifacts
+*.sqlproj.user
+*.sqlite
+*.sqlite3
+*.db
+*.duckdb
+*.dump
+*.backup
+*.bak
+
+# Project-generated data and outputs
+SQL/data_raw/
+SQL/backup/
+SQL/comparisons/
+
+# Project notes
+SQL/docs/WAREHOUSE_REDESIGN_NOTES.md
