@@ -2,12 +2,13 @@
 app.py — Streamlit entrypoint for FinQuery.
 
 Thin orchestration layer only: renders the sidebar health check
-and the two main tabs. All data access goes through app.queries;
-this file never imports app.db directly.
+and delegates each tab's content to its own module. This file
+should never grow chart or chain logic directly.
 """
 
 import streamlit as st
 from app.queries import check_warehouse_health
+from app import dashboard
 
 st.set_page_config(page_title="FinQuery", layout="wide")
 
@@ -23,8 +24,7 @@ with st.sidebar:
 tab_dashboard, tab_ask_ai = st.tabs(["Dashboard", "Ask AI"])
 
 with tab_dashboard:
-    st.header("Analytics Dashboard")
-    st.info("Charts will be added here next.")
+    dashboard.render()
 
 with tab_ask_ai:
     st.header("Ask AI")
