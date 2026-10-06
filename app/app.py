@@ -8,7 +8,7 @@ should never grow chart or chain logic directly.
 
 import streamlit as st
 from app.queries import check_warehouse_health
-from app import dashboard
+from app import dashboard, ask_ai
 
 st.set_page_config(page_title="FinQuery", layout="wide")
 
@@ -27,5 +27,4 @@ with tab_dashboard:
     dashboard.render()
 
 with tab_ask_ai:
-    st.header("Ask AI")
-    st.info("LangChain + Gemini chain will be added here next.")
+    ask_ai.render()
