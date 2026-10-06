@@ -45,3 +45,9 @@ SQL/comparisons/
 
 # Project notes
 SQL/docs/WAREHOUSE_REDESIGN_NOTES.md
+
+# Environment secrets
+.env
+
+# Streamlit
+.streamlit/secrets.toml

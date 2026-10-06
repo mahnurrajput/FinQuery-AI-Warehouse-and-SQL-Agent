@@ -168,11 +168,43 @@ FinQuery/
 │   │   └── indexing_partitioning.sql   # Indexes, materialized view, range partitions
 │   ├── 05_olap_queries/
 │   │   └── olap_queries.sql            # Analytics queries
+│   ├── 06_security/
+│   │   └── create_readonly_role.sql    # Read-only database role and permissions
+│   │
+│   ├── data_raw/                       # Local-only raw/source data — not pushed to GitHub
+│   ├── comparisons/                    # Local-only comparison files — not pushed to GitHub
+│   ├── backup/                         # Local-only database/file backups — not pushed to GitHub
+│   │
 │   └── docs/
 │       ├── schema_justification.sql    # Modeling decisions and rationale
+│       ├── WAREHOUSE_REDESIGN_NOTES.md # Local-only redesign notes — not pushed to GitHub
 │       └── schema_diagram.pdf          # ER diagram
+│
+├── app/
+│   ├── config.py                       # (next commit — not yet)
+│   ├── db.py                           # (next commit — not yet)
+│   ├── queries.py                      # (next commit — not yet)
+│   └── app.py                          # (next commit — not yet)
+│
+├── scripts/
+│   ├── check_connection.py             # (next commit — not yet)
+│   └── refresh_molap.py                # (next commit — not yet)
+│
+├── .env                                # NEVER committed — your real secrets
+├── .env.example                        # committed — template only
+├── requirements.txt
+├── .gitignore
 └── README.md
 ```
+
+### Local-only SQL folders/files
+
+The following are intentionally kept locally and should be excluded through `.gitignore`:
+
+* `SQL/data_raw/`
+* `SQL/comparisons/`
+* `SQL/backup/`
+* `SQL/docs/WAREHOUSE_REDESIGN_NOTES.md`
 
 ---
 
