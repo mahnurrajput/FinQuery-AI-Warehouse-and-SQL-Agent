@@ -155,7 +155,7 @@ Five precomputed summary tables power the dashboard:
 
 ## Repository Structure
 
-```
+```text
 FinQuery/
 ├── SQL/
 │   ├── 01_schema/
@@ -168,12 +168,9 @@ FinQuery/
 │   │   └── indexing_partitioning.sql   # Indexes, materialized view, range partitions
 │   ├── 05_olap_queries/
 │   │   └── olap_queries.sql            # Analytics queries
-│   ├── 06_performance/
-│   │   └── join_performance.sql        # Join strategy benchmarks
 │   └── docs/
-│       ├── schema_justification.sql       # Modeling decisions and rationale
-│       ├── WAREHOUSE_REDESIGN_NOTES.md    # Full audit trail and redesign notes
-│       └── schema_diagram.pdf             # ER diagram
+│       ├── schema_justification.sql    # Modeling decisions and rationale
+│       └── schema_diagram.pdf          # ER diagram
 └── README.md
 ```
 
