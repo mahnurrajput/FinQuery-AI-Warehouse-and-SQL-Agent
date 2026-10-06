@@ -181,15 +181,20 @@ FinQuery/
 │       └── schema_diagram.pdf          # ER diagram
 │
 ├── app/
-│   ├── config.py                       # (next commit — not yet)
-│   ├── db.py                           # (next commit — not yet)
-│   ├── queries.py                      # (next commit — not yet)
-│   └── app.py                          # (next commit — not yet)
+│   ├── __init__.py                     # Makes app/ an importable package
+│   ├── config.py                       # Centralized env var loader
+│   ├── db.py                           # SQLAlchemy engine, run_query, health_check
+│   ├── queries.py                      # Named MOLAP query functions
+│   ├── dashboard.py                    # Dashboard tab — 5 Plotly charts
+│   ├── ask_ai.py                       # Ask AI tab — prompt + UI
+│   ├── llm_fallback.py                 # Multi-model Gemini fallback strategy
+│   └── app.py                          # Thin orchestration — sidebar + tab delegation
 │
 ├── scripts/
-│   ├── check_connection.py             # (next commit — not yet)
-│   └── refresh_molap.py                # (next commit — not yet)
+│   ├── check_connection.py             # One-off DB connectivity check
+│   └── refresh_molap.py                # (not yet — next session)
 │
+├── main.py                             # Root entrypoint — avoids app/ name collision with Streamlit
 ├── .env                                # NEVER committed — your real secrets
 ├── .env.example                        # committed — template only
 ├── requirements.txt
