@@ -169,7 +169,7 @@ FinQuery/
 │   ├── 05_olap_queries/
 │   │   └── olap_queries.sql            # Analytics queries
 │   ├── 06_security/
-│   │   └── create_readonly_role.sql    # Read-only database role and permissions
+│   │   └── create_readonly_role.sql    # Read-only role (hardcoded password still to fix)
 │   │
 │   ├── data_raw/                       # Local-only raw/source data — not pushed to GitHub
 │   ├── comparisons/                    # Local-only comparison files — not pushed to GitHub
@@ -182,22 +182,27 @@ FinQuery/
 │
 ├── app/
 │   ├── __init__.py                     # Makes app/ an importable package
-│   ├── config.py                       # Centralized env var loader
+│   ├── config.py                       # Env var loader — now includes GROQ_API_KEY
 │   ├── db.py                           # SQLAlchemy engine, run_query, health_check
 │   ├── queries.py                      # Named MOLAP query functions
 │   ├── dashboard.py                    # Dashboard tab — 5 Plotly charts
-│   ├── ask_ai.py                       # Ask AI tab — prompt + UI
-│   ├── llm_fallback.py                 # Multi-model Gemini fallback strategy
+│   ├── ask_ai.py                       # Ask AI tab — still the old demo chain (replaced in Module 3.3)
+│   ├── llm_fallback.py                 # Multi-provider fallback (Gemini + Groq), per-attempt logging
+│   ├── schema_context.py               # NEW — schema description, rules, few-shot examples (Module 2.1)
+│   ├── sql_generator.py                # NEW — question → SQL, CANNOT_ANSWER and error results (Module 2.2)
+│   ├── sql_validator.py                # NEW — parser-based safety checks, LIMIT enforcement (Module 2.3)
 │   └── app.py                          # Thin orchestration — sidebar + tab delegation
 │
 ├── scripts/
 │   ├── check_connection.py             # One-off DB connectivity check
-│   └── refresh_molap.py                # (not yet — next session)
+│   ├── test_sql_generator.py           # NEW — runs seven sample questions through the generator
+│   ├── test_sql_validator.py           # NEW — 40 offline validator tests, no model calls
+│   └── refresh_molap.py                # (not yet — later module)
 │
 ├── main.py                             # Root entrypoint — avoids app/ name collision with Streamlit
-├── .env                                # NEVER committed — your real secrets
-├── .env.example                        # committed — template only
-├── requirements.txt
+├── .env                                # NEVER committed — real secrets 
+├── .env.example                        
+├── requirements.txt                    
 ├── .gitignore
 └── README.md
 ```
