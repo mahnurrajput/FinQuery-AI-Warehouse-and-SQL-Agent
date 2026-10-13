@@ -30,6 +30,8 @@ DB_PASSWORD = _require("DB_PASSWORD")
 
 # --- Gemini ---
 GOOGLE_API_KEY = _require("GOOGLE_API_KEY")
+# --- Groq (optional fallback provider) ---
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 # --- Privileged connection (MOLAP refresh only — used only by scripts/refresh_molap.py) ---
 MOLAP_REFRESH_DB_USER = os.getenv("MOLAP_REFRESH_DB_USER")
