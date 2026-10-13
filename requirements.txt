@@ -6,3 +6,5 @@ plotly
 langchain
 langchain-google-genai
 google-generativeai
+langchain-groq
+sqlglot==30.22.0
